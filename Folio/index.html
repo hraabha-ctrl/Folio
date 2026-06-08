@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Aabha HR — UI designer and web developer based in Kerala.">
+  <title>Aabha HR — Developer Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="nav" aria-label="Main navigation">
+    <div class="container nav-inner">
+      <span class="nav-brand"> Aabha HR </span>
+      <ul class="nav-links">
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li>
+          <button class="theme-btn" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-inner">
+      <p class="hero-eyebrow reveal">Hello, I am Aabha HR</p>
+      <h1 class="hero-title reveal">Building clean, functional web experiences.</h1>
+      <p class="hero-lead reveal">I bridge the gap between design and code, turning complex concepts into seamless user interactions.</p>
+      <div class="hero-actions reveal">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Selected Work</h2>
+        
+        <div class="projects-grid">
+          <article class="project-card reveal">
+            <div class="project-card-image" style="background-color: var(--border);"></div>
+            <div class="project-card-content">
+              <span class="tag tag-high">Tide App</span>
+              <h3 class="project-card-title">Redesigning Marine Logistics</h3>
+              <p class="project-card-desc">Streamlining container scheduling and shipping communications for global supply channels.</p>
+              <a href="https://www.figma.com/proto/HS3luDyXtVCC6xnnEsbXMi/Untitled?node-id=1-155&p=f&t=gj7yeYhIWuAlhYKA-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A155" target="_blank" rel="noopener" class="project-card-link">View Prototype &#8599;</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-card-image" style="background-color: var(--border);"></div>
+            <div class="project-card-content">
+              <span class="tag tag-med">TaskFlow</span>
+              <h3 class="project-card-title">Minimalist Productivity Tool</h3>
+              <p class="project-card-desc">An elegant, fluid task manager engineered to focus on execution without dashboard clutter.</p>
+              <a href="https://lovely-granita-d5f754.netlify.app/" class="project-card-link">View Project &#8599;</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills" class="section section-alt">
+      <div class="container">
+        <h2 class="section-title reveal">Skills &amp; Toolkit</h2>
+        <div class="skills-grid reveal">
+          <div class="skills-category">
+            <h3>Frontend Development</h3>
+            <p>HTML5, CSS3, JavaScript (ES6+), Responsive Design, Semantic Layouts.</p>
+          </div>
+          <div class="skills-category">
+            <h3>UI/UX Architecture</h3>
+            <p>Figma Design Systems, Visual Hierarchy, Prototyping, Component Frameworks.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container text-center reveal">
+        <h2 class="section-title">Contact</h2>
+        <p class="contact-lead">Open to internships, freelance design, and good conversations. The fastest way to reach me is email.</p>
+
+        <div class="contact-links">
+          <a href="mailto:hr.aabha@gmail.com" class="contact-link">
+            <span class="contact-link-label">Email</span>
+            <span class="contact-link-value">hr.aabha@gmail.com</span>
+          </a>
+          <a href="https://github.com" target="_blank" rel="noopener" class="contact-link">
+            <span class="contact-link-label">GitHub</span>
+            <span class="contact-link-value">Nill&#8599;</span>
+          </a>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact-link">
+            <span class="contact-link-label">LinkedIn</span>
+            <span class="contact-link-value">https://www.linkedin.com/in/aabha-hr-18182137b?utm_source=share_via&utm_content=profile&utm_medium=member_android &#8599;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>Built from scratch with HTML, CSS &amp; JavaScript &#8212; ZERO2DEV 2026.</p>
+      <p class="footer-muted">&#169; 2026 Aabha HR. Designed in Figma, coded by hand.</p>
+    </div>
+  </footer>
+
+  <button id="to-top" class="to-top" aria-label="Back to top">&#8593;</button>
+
+  <script src="script.js"></script>
+</body>
+</html>

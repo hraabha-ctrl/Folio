@@ -1,0 +1,305 @@
+/* =========================================================
+   FOLIO — style.css
+   A portfolio site styled entirely from design tokens.
+   ========================================================= */
+
+/* ---------- 1. DESIGN TOKENS ---------- */
+:root {
+    --name:#E0FFFF;
+    
+
+  /* Colours */
+
+ 
+  --primary:   #5A8FB0;   /* Color/Primary */
+  --ink:       #1a1a1a;   /* Color/Ink */
+  --ink-muted: #6B6B6B;   /* Color/Ink-muted */
+  --surface:   #C2B280;   /* Color/Surface */
+  --card:      #FFFFFF;   /* Color/Card */
+  --border:    #EFE9D8;   /* Color/Border */
+  --pri-high:  #C76A55;   
+  --pri-med:   #C9A23A;   
+  --pri-low:   #7A9165;   
+
+  /* Spacing */
+  --s8:  8px;
+  --s16: 16px;
+  --s24: 24px;
+  --s32: 32px;
+  --s48: 48px;
+  --s64: 64px;
+  --s96: 96px;
+
+  /* Border Radius */
+  --r-base: 12px;
+  --r-card: 20px;
+  --r-pill: 9999px;
+
+  /* Typography Scale */
+  --display: clamp(2.5rem, 6vw, 4rem);
+  --h2:      clamp(1.75rem, 4vw, 2.5rem);
+  --h3:      1.25rem;
+  --body:    1.05rem;
+  --sm:      0.95rem;
+  --cap:     0.85rem;
+
+  /* Utility Styles */
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ---------- 2. DARK MODE OVERRIDES ---------- */
+body.dark {
+  --ink:       #F7F5ED;   
+  --ink-muted: #A3A199;   
+  --surface:   #121415;   
+  --card:      #1C1E20;   
+  --border:    #2A2D30;   
+  --shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------- 3. RESET + BASE ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--name);
+  color: var(--ink);
+  font-size: var(--body);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--s24);
+}
+
+.text-center { text-align: center; }
+
+/* ---------- 4. NAVIGATION ---------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: var(--surface);
+  border-bottom: 1px solid var(--border);
+  height: 72px;
+}
+
+.nav-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-brand {
+  font-weight: 700;
+  font-size: var(--h3);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: var(--s32);
+}
+
+.nav-links a {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: var(--sm);
+  transition: var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--primary);
+}
+
+.theme-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--r-base);
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  background-color: var(--card);
+}
+
+/* ---------- 5. HERO ---------- */
+.hero {
+  padding: var(--s96) 0;
+  min-height: calc(100vh - 72px);
+  display: flex;
+  align-items: center;
+}
+
+.hero-eyebrow {
+  color: #005B96;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--s16);
+  font-size: var(--sm);
+}
+
+.hero-title {
+  font-size: var(--display);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--s24);
+}
+
+.hero-lead {
+  font-size: clamp(1.1rem, 3vw, 1.35rem);
+  color: var(--ink-muted);
+  max-width: 680px;
+  margin-bottom: var(--s48);
+}
+
+.hero-actions {
+  display: flex;
+  gap: var(--s16);
+  flex-wrap: wrap;
+}
+
+/* ---------- 6. BUTTONS ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--s16) var(--s32);
+  font-size: var(--sm);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--r-base);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: var(--primary);
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover {
+  filter: brightness(0.9);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: var(--card);
+  color: var(--ink);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  background-color: var(--border);
+  transform: translateY(-2px);
+}
+
+/* ---------- 7. PROJECTS GRID + CARDS ---------- */
+.section { padding: var(--s96) 0; }
+.section-alt { background-color: var(--card); }
+.section-title { font-size: var(--h2); font-weight: 700; margin-bottom: var(--s48); }
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: var(--s32);
+}
+
+.project-card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--r-card);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card-image {
+  height: 220px;
+  width: 100%;
+}
+
+.project-card-content {
+  padding: var(--s24);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.tag {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 4px var(--s12);
+  border-radius: var(--r-pill);
+  font-size: var(--cap);
+  font-weight: 600;
+  margin-bottom: var(--s16);
+  color: #fff;
+}
+
+.tag-high { background-color: var(--pri-high); }
+.tag-med { background-color: var(--pri-med); }
+
+.project-card-title { font-size: var(--h3); margin-bottom: var(--s8); }
+.project-card-desc { color: var(--ink-muted); font-size: var(--sm); margin-bottom: var(--s24); flex-grow: 1; }
+.project-card-link { color: var(--primary); font-weight: 600; text-decoration: none; font-size: var(--sm); }
+
+/* ---------- 8. SKILLS / CONTACT / FOOTER ---------- */
+.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--s32); }
+.skills-category h3 { margin-bottom: var(--s12); }
+.skills-category p { color: var(--ink-muted); }
+
+.contact-lead { font-size: var(--h3); color: var(--ink-muted); max-width: 580px; margin: 0 auto var(--s48); }
+.contact-links { display: flex; flex-direction: column; gap: var(--s16); max-width: 400px; margin: 0 auto; }
+
+.contact-link {
+  display: flex; justify-content: space-between; padding: var(--s16) var(--s24);
+  border: 1px solid var(--border); border-radius: var(--r-base); background-color: var(--card);
+  text-decoration: none; color: var(--ink); font-weight: 500; transition: var(--transition);
+}
+.contact-link:hover { border-color: var(--primary); transform: translateX(4px); }
+.contact-link-label { color: var(--ink-muted); }
+
+.footer { padding: var(--s48) 0; border-top: 1px solid var(--border); text-align: center; color: var(--ink-muted); font-size: var(--cap); }
+.footer-muted { font-size: var(--sm); margin-top: var(--s8); }
+
+/* ---------- 9. BACK-TO-TOP + REVEAL ---------- */
+.to-top {
+  position: fixed; bottom: var(--s24); right: var(--s24);
+  width: 44px; height: 44px; border: none; border-radius: var(--r-pill);
+  background-color: var(--primary); color: #fff; font-size: 1.2rem;
+  cursor: pointer; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; box-shadow: var(--shadow);
+}
+.to-top.show { opacity: 1; pointer-events: auto; }
+
+.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+@media (max-width: 600px) {
+  .nav-links { gap: var(--s16); }
+  .hero { padding: var(--s48) 0; }
+  .projects-grid { grid-template-columns: 1fr; }
+}
