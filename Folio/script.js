@@ -1,33 +1,20 @@
 /* =========================================================
-   FOLIO — script.js
-   Every interaction on this page lives here.
+   FOLIO CORE MODULES — script.js
    ========================================================= */
 
-
-/* ---------- 1. DARK MODE TOGGLE ---------- */
-
-// FIND the button by its id.
+/* ---------- 1. THEME SWAP MODULE ---------- */
 const themeToggle = document.querySelector('#theme-toggle');
 
-// LISTEN for a click.
 themeToggle.addEventListener('click', () => {
-  // CHANGE: add the 'dark' class if missing, remove it if present.
   document.body.classList.toggle('dark');
-
-  // Swap the icon to match the current mode.
   const isDark = document.body.classList.contains('dark');
   themeToggle.textContent = isDark ? '☀️' : '🌙'; 
 });
 
-
-/* ---------- 2. BACK-TO-TOP BUTTON ---------- */
-
-// FIND the button.
+/* ---------- 2. TO-TOP CONTROLLER ---------- */
 const toTop = document.querySelector('#to-top');
 
-// LISTEN for scrolling on the whole window.
 window.addEventListener('scroll', () => {
-  // CHANGE: show the button only after scrolling down 300px.
   if (window.scrollY > 300) {
     toTop.classList.add('show');
   } else {
@@ -35,35 +22,24 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// LISTEN for a click on the button itself.
 toTop.addEventListener('click', () => {
-  // CHANGE: scroll smoothly back to the top of the page.
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-
-/* ---------- 3. SCROLL REVEAL ---------- */
-
-// FIND every element that has the class "reveal".
+/* ---------- 3. LAYOUT INTERSECTION OBSERVER ---------- */
 const revealItems = document.querySelectorAll('.reveal');
 
-// IntersectionObserver watches elements and tells us when they enter the screen.
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
-    // When an element scrolls into view...
     if (entry.isIntersecting) {
-      // CHANGE: add the class that fades + slides it in.
       entry.target.classList.add('is-visible');
-      // Stop watching it — it only needs to animate once.
       observer.unobserve(entry.target);
     }
   });
 }, {
-  // Trigger when 10% of the element is visible on screen
-  threshold: 0.1
+  threshold: 0.08
 });
 
-// Start tracking each individual target element
 revealItems.forEach((item) => {
   observer.observe(item);
 });
