@@ -1,11 +1,10 @@
 /* ---------- 1. DESIGN TOKENS ---------- */
 :root {
-    --name:#E0FFFF;
-  /* Dynamic Background Color Scheme */
-  --surface:   #C2B280;   /* Main theme aquamarine background */
+  --name: #E0FFFF;            
+  --surface:   #C2B280;       
   --ink:       #111827;   
   --ink-muted: #374151;   
-  --card:      rgba(255, 255, 255, 0.88); /* Clean glassmorphic effect */
+  --card:      rgba(255, 255, 255, 0.88); 
   --border:    rgba(0, 0, 0, 0.06);   
   --primary:   #0f766e;   
 
@@ -42,12 +41,15 @@
 
 /* ---------- 2. DARK MODE OVERRIDES ---------- */
 body.dark {
-  --surface:   #064e3b;   /* Deep emerald dark surface */
-  --ink:       #f9fafb;   
-  --ink-muted: #d1d5db;   
-  --card:      rgba(17, 24, 39, 0.85); 
+ 
+  --name:      #121416;   
+  
+  --surface:   #1A1D20;   
+  --ink:       #F5F5F7;   
+  --ink-muted: #A0AABF;   
+  --card:      #1C1E22;  
   --border:    rgba(255, 255, 255, 0.08);   
-  --primary:   #34d399;   
+  --primary:   #56A3B8;   
   --shadow:    0 12px 36px rgba(0, 0, 0, 0.4);
 
   --bar-blue:       #818cf8;
@@ -140,6 +142,16 @@ body {
   background-color: var(--card);
 }
 
+body.dark .nav-links a,
+body.dark .nav-brand {
+  color: var(--ink); 
+}
+
+body.dark .theme-btn {
+  background-color: var(--card); 
+  border-color: var(--border);
+}
+
 /* ---------- 5. HERO SETUP ---------- */
 .hero {
   padding: var(--s96) 0;
@@ -214,9 +226,18 @@ body {
   transform: translateY(-2px);
 }
 
+body.dark .btn-primary {
+  background-color: var(--ink);
+  color: var(--surface);
+}
+
 /* ---------- 7. PROJECTS THREE-COLUMN GRID ---------- */
 .section { padding: var(--s96) 0; }
-.section-alt { background-color: rgba(255, 255, 255, 0.15); }
+.section-alt { background-color: rgba(255, 255, 255, 0.15); transition: background-color 0.3s ease; }
+
+body.dark .section-alt {
+  background-color: rgba(0, 0, 0, 0.2);  
+}
 
 .section-eyebrow {
   font-size: var(--sm);
@@ -263,9 +284,13 @@ body {
 .card-category {
   font-size: var(--cap);
   font-weight: 700;
-  color:#367588;
+  color: #367588;
   letter-spacing: 0.05em;
   margin-bottom: var(--s12);
+}
+
+body.dark .card-category {
+  color: var(--primary); 
 }
 
 .project-card-title { 
@@ -291,16 +316,18 @@ body {
 }
 
 .skill-badge {
-  background-color:#E8DCC8;
+  background-color: #E8DCC8;
   color: var(--ink-muted);
   padding: 6px 14px;
   border-radius: var(--r-pill);
   font-size: var(--cap);
   font-weight: 500;
+  transition: var(--transition);
 }
 
 body.dark .skill-badge {
-  background-color: rgba(255, 255, 255, 0.06);
+  background-color: rgba(255, 255, 255, 0.08);
+  color: var(--ink);
 }
 
 .project-card-link { 
