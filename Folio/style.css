@@ -1,28 +1,23 @@
-/* =========================================================
-   FOLIO — style.css
-   A portfolio site styled entirely from design tokens.
-   ========================================================= */
-
 /* ---------- 1. DESIGN TOKENS ---------- */
 :root {
     --name:#E0FFFF;
-    
+  /* Dynamic Background Color Scheme */
+  --surface:   #C2B280;   /* Main theme aquamarine background */
+  --ink:       #111827;   
+  --ink-muted: #374151;   
+  --card:      rgba(255, 255, 255, 0.88); /* Clean glassmorphic effect */
+  --border:    rgba(0, 0, 0, 0.06);   
+  --primary:   #0f766e;   
 
-  /* Colours */
+  /* Skills Bar Custom Accents */
+  --bar-blue:       #4f46e5;
+  --bar-green:      #15803d;
+  --bar-yellow:     #b45309;
+  --bar-terracotta: #b91c1c;
 
- 
-  --primary:   #5A8FB0;   /* Color/Primary */
-  --ink:       #1a1a1a;   /* Color/Ink */
-  --ink-muted: #6B6B6B;   /* Color/Ink-muted */
-  --surface:   #C2B280;   /* Color/Surface */
-  --card:      #FFFFFF;   /* Color/Card */
-  --border:    #EFE9D8;   /* Color/Border */
-  --pri-high:  #C76A55;   
-  --pri-med:   #C9A23A;   
-  --pri-low:   #7A9165;   
-
-  /* Spacing */
+  /* Layout Scales */
   --s8:  8px;
+  --s12: 12px;
   --s16: 16px;
   --s24: 24px;
   --s32: 32px;
@@ -30,35 +25,38 @@
   --s64: 64px;
   --s96: 96px;
 
-  /* Border Radius */
   --r-base: 12px;
-  --r-card: 20px;
+  --r-card: 24px;
   --r-pill: 9999px;
 
-  /* Typography Scale */
-  --display: clamp(2.5rem, 6vw, 4rem);
-  --h2:      clamp(1.75rem, 4vw, 2.5rem);
-  --h3:      1.25rem;
+  --display: clamp(2.3rem, 5.5vw, 3.8rem);
+  --h2:      clamp(1.8rem, 4vw, 2.4rem);
+  --h3:      1.3rem;
   --body:    1.05rem;
   --sm:      0.95rem;
   --cap:     0.85rem;
 
-  /* Utility Styles */
-  --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* ---------- 2. DARK MODE OVERRIDES ---------- */
 body.dark {
-  --ink:       #F7F5ED;   
-  --ink-muted: #A3A199;   
-  --surface:   #121415;   
-  --card:      #1C1E20;   
-  --border:    #2A2D30;   
-  --shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  --surface:   #064e3b;   /* Deep emerald dark surface */
+  --ink:       #f9fafb;   
+  --ink-muted: #d1d5db;   
+  --card:      rgba(17, 24, 39, 0.85); 
+  --border:    rgba(255, 255, 255, 0.08);   
+  --primary:   #34d399;   
+  --shadow:    0 12px 36px rgba(0, 0, 0, 0.4);
+
+  --bar-blue:       #818cf8;
+  --bar-green:      #4ade80;
+  --bar-yellow:     #fbbf24;
+  --bar-terracotta: #f87171;
 }
 
-/* ---------- 3. RESET + BASE ---------- */
+/* ---------- 3. RESET & GLOBALS ---------- */
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -138,11 +136,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   background-color: var(--card);
 }
 
-/* ---------- 5. HERO ---------- */
+/* ---------- 5. HERO SETUP ---------- */
 .hero {
   padding: var(--s96) 0;
   min-height: calc(100vh - 72px);
@@ -151,7 +149,7 @@ body {
 }
 
 .hero-eyebrow {
-  color: #005B96;
+  color: var(--ink-muted);
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -168,7 +166,7 @@ body {
 }
 
 .hero-lead {
-  font-size: clamp(1.1rem, 3vw, 1.35rem);
+  font-size: clamp(1.1rem, 3vw, 1.3rem);
   color: var(--ink-muted);
   max-width: 680px;
   margin-bottom: var(--s48);
@@ -180,7 +178,7 @@ body {
   flex-wrap: wrap;
 }
 
-/* ---------- 6. BUTTONS ---------- */
+/* ---------- 6. BUTTON SPECIFICATIONS ---------- */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -195,13 +193,13 @@ body {
 }
 
 .btn-primary {
-  background-color: var(--primary);
-  color: #fff;
+  background-color: var(--ink);
+  color: var(--surface);
   border: none;
 }
 
 .btn-primary:hover {
-  filter: brightness(0.9);
+  opacity: 0.9;
   transform: translateY(-2px);
 }
 
@@ -216,86 +214,205 @@ body {
   transform: translateY(-2px);
 }
 
-/* ---------- 7. PROJECTS GRID + CARDS ---------- */
+/* ---------- 7. PROJECTS THREE-COLUMN GRID ---------- */
 .section { padding: var(--s96) 0; }
-.section-alt { background-color: var(--card); }
-.section-title { font-size: var(--h2); font-weight: 700; margin-bottom: var(--s48); }
+.section-alt { background-color: rgba(255, 255, 255, 0.15); }
+
+.section-eyebrow {
+  font-size: var(--sm);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--ink-muted);
+  margin-bottom: var(--s8);
+}
+
+.section-title { 
+  font-size: var(--h2); 
+  font-weight: 700; 
+  margin-bottom: var(--s48); 
+}
 
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: var(--s32);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--s24);
 }
 
 .project-card {
   background-color: var(--card);
   border: 1px solid var(--border);
   border-radius: var(--r-card);
-  overflow: hidden;
   box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
+  transition: var(--transition);
 }
 
-.project-card-image {
-  height: 220px;
-  width: 100%;
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
 }
 
 .project-card-content {
-  padding: var(--s24);
+  padding: var(--s32);
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
-.tag {
-  display: inline-block;
-  align-self: flex-start;
-  padding: 4px var(--s12);
+.card-category {
+  font-size: var(--cap);
+  font-weight: 700;
+  color:#367588;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--s12);
+}
+
+.project-card-title { 
+  font-size: var(--h2); 
+  font-weight: 700;
+  margin-bottom: var(--s16); 
+}
+
+.project-card-desc { 
+  color: var(--ink-muted); 
+  font-size: var(--sm); 
+  margin-bottom: var(--s32); 
+  line-height: 1.5;
+}
+
+/* Pill Badges Container */
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s8);
+  margin-top: auto; 
+  margin-bottom: var(--s24);
+}
+
+.skill-badge {
+  background-color:#E8DCC8;
+  color: var(--ink-muted);
+  padding: 6px 14px;
   border-radius: var(--r-pill);
   font-size: var(--cap);
+  font-weight: 500;
+}
+
+body.dark .skill-badge {
+  background-color: rgba(255, 255, 255, 0.06);
+}
+
+.project-card-link { 
+  color: var(--ink); 
+  font-weight: 600; 
+  text-decoration: none; 
+  font-size: var(--sm); 
+}
+
+.status-link {
+  color: var(--ink-muted);
+  opacity: 0.6;
+}
+
+/* ---------- 8. PROGRESSIVE SKILLS BAR COMPONENT ---------- */
+.skills-container {
+  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s24);
+}
+
+.skill-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s8);
+}
+
+.skill-info {
+  display: flex;
+  justify-content: space-between;
   font-weight: 600;
-  margin-bottom: var(--s16);
-  color: #fff;
+  font-size: var(--sm);
 }
 
-.tag-high { background-color: var(--pri-high); }
-.tag-med { background-color: var(--pri-med); }
-
-.project-card-title { font-size: var(--h3); margin-bottom: var(--s8); }
-.project-card-desc { color: var(--ink-muted); font-size: var(--sm); margin-bottom: var(--s24); flex-grow: 1; }
-.project-card-link { color: var(--primary); font-weight: 600; text-decoration: none; font-size: var(--sm); }
-
-/* ---------- 8. SKILLS / CONTACT / FOOTER ---------- */
-.skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--s32); }
-.skills-category h3 { margin-bottom: var(--s12); }
-.skills-category p { color: var(--ink-muted); }
-
-.contact-lead { font-size: var(--h3); color: var(--ink-muted); max-width: 580px; margin: 0 auto var(--s48); }
-.contact-links { display: flex; flex-direction: column; gap: var(--s16); max-width: 400px; margin: 0 auto; }
-
-.contact-link {
-  display: flex; justify-content: space-between; padding: var(--s16) var(--s24);
-  border: 1px solid var(--border); border-radius: var(--r-base); background-color: var(--card);
-  text-decoration: none; color: var(--ink); font-weight: 500; transition: var(--transition);
+.progress-bar {
+  width: 100%;
+  height: 12px;
+  background-color: rgba(0, 0, 0, 0.06);
+  border-radius: var(--r-pill);
+  overflow: hidden;
 }
-.contact-link:hover { border-color: var(--primary); transform: translateX(4px); }
-.contact-link-label { color: var(--ink-muted); }
 
+body.dark .progress-bar {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: var(--r-pill);
+  transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Match colors from layout specifications */
+.progress-blue { background-color: var(--bar-blue); }
+.progress-green { background-color: var(--bar-green); }
+.progress-yellow { background-color: var(--bar-yellow); }
+.progress-terracotta { background-color: var(--bar-terracotta); }
+
+/* ---------- 9. CONTACT CARD LINKS ---------- */
+.contact-lead { max-width: 500px; margin: 0 auto var(--s32); color: var(--ink-muted); }
+
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s16);
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.contact-card {
+  display: flex; 
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--s16) var(--s24);
+  border: 1px solid var(--border);
+  border-radius: var(--r-base);
+  background-color: var(--card);
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.contact-card:hover {
+  border-color: var(--primary);
+  transform: translateX(4px);
+}
+
+.contact-label { color: var(--ink-muted); font-size: var(--sm); }
+.contact-value {
+   font-size: var(--sm);
+   font-weight: 600;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   padding-left: var(--s12);
+}
+
+/* ---------- 10. FOOTER & ANIMATION ACTIONS ---------- */
 .footer { padding: var(--s48) 0; border-top: 1px solid var(--border); text-align: center; color: var(--ink-muted); font-size: var(--cap); }
 .footer-muted { font-size: var(--sm); margin-top: var(--s8); }
 
-/* ---------- 9. BACK-TO-TOP + REVEAL ---------- */
 .to-top {
   position: fixed; bottom: var(--s24); right: var(--s24);
   width: 44px; height: 44px; border: none; border-radius: var(--r-pill);
-  background-color: var(--primary); color: #fff; font-size: 1.2rem;
+  background-color: var(--ink); color: var(--surface); font-size: 1.1rem;
   cursor: pointer; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; box-shadow: var(--shadow);
 }
 .to-top.show { opacity: 1; pointer-events: auto; }
 
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
 .reveal.is-visible { opacity: 1; transform: translateY(0); }
 
 @media (max-width: 600px) {
