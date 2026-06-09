@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portfolio of Aabha HR — UI designer and web developer based in Kerala.">
+  <meta name="description" content="Portfolio of Aabha HR — UI designer and web developer.">
   <title>Aabha HR — Developer Portfolio</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,13 +16,13 @@
 
   <nav class="nav" aria-label="Main navigation">
     <div class="container nav-inner">
-      <span class="nav-brand"> Aabha HR </span>
+      <span class="nav-brand">Aabha HR</span>
       <ul class="nav-links">
         <li><a href="#projects">Projects</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
         <li>
-          <button class="theme-btn" id="theme-toggle" aria-label="Toggle dark mode">&#127769;</button>
+          <button class="theme-btn" id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
         </li>
       </ul>
     </div>
@@ -41,28 +41,54 @@
   </header>
 
   <main>
+    
     <section id="projects" class="section">
       <div class="container">
-        <h2 class="section-title reveal">Selected Work</h2>
+        <p class="section-eyebrow reveal">01 — WORK</p>
+        <h2 class="section-title reveal">Projects</h2>
         
         <div class="projects-grid">
           <article class="project-card reveal">
-            <div class="project-card-image" style="background-color: var(--border);"></div>
             <div class="project-card-content">
-              <span class="tag tag-high">Tide App</span>
-              <h3 class="project-card-title">Redesigning Marine Logistics</h3>
-              <p class="project-card-desc">Streamlining container scheduling and shipping communications for global supply channels.</p>
-              <a href="https://www.figma.com/proto/HS3luDyXtVCC6xnnEsbXMi/Untitled?node-id=1-155&p=f&t=gj7yeYhIWuAlhYKA-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A155" target="_blank" rel="noopener" class="project-card-link">View Prototype &#8599;</a>
+              <span class="card-category">UI / UX DESIGN</span>
+              <h3 class="project-card-title">Tide</h3>
+              <p class="project-card-desc">A complete task-manager app design built in Figma: a token-based design system, seven connected screens, and a clickable prototype.</p>
+              
+              <div class="card-tags">
+                <span class="skill-badge">Figma</span>
+                <span class="skill-badge">Design System</span>
+                <span class="skill-badge">Prototype</span>
+              </div>
+              <a href="https://www.figma.com/proto/HS3luDyXtVCC6xnnEsbXMi/Untitled?node-id=1-155&p=f&t=gj7yeYhIWuAlhYKA-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A155" target="_blank" rel="noopener" class="project-card-link">View prototype &rarr;</a>
             </div>
           </article>
 
           <article class="project-card reveal">
-            <div class="project-card-image" style="background-color: var(--border);"></div>
             <div class="project-card-content">
-              <span class="tag tag-med">TaskFlow</span>
-              <h3 class="project-card-title">Minimalist Productivity Tool</h3>
-              <p class="project-card-desc">An elegant, fluid task manager engineered to focus on execution without dashboard clutter.</p>
-              <a href="https://lovely-granita-d5f754.netlify.app/" class="project-card-link">View Project &#8599;</a>
+              <span class="card-category">WEB DEVELOPMENT</span>
+              <h3 class="project-card-title">Folio</h3>
+              <p class="project-card-desc">This portfolio site. Hand-written semantic HTML, a CSS design system carried straight from my Figma tokens, and a dark-mode toggle in vanilla JavaScript. Deployed on Netlify.</p>
+              
+              <div class="card-tags">
+                <span class="skill-badge">HTML</span>
+                <span class="skill-badge">CSS</span>
+                <span class="skill-badge">JavaScript</span>
+              </div>
+              <a href="#" target="_blank" rel="noopener" class="project-card-link">View code &rarr;</a>
+            </div>
+          </article>
+
+          <article class="project-card reveal">
+            <div class="project-card-content">
+              <span class="card-category">AUTOMATION</span>
+              <h3 class="project-card-title">Pulse</h3>
+              <p class="project-card-desc">Coming after Session 03: a Python bot that sends a daily summary every morning, scheduled with GitHub Actions.</p>
+              
+              <div class="card-tags">
+                <span class="skill-badge">Python</span>
+                <span class="skill-badge">GitHub Actions</span>
+              </div>
+              <span class="project-card-link status-link">In progress &rarr;</span>
             </div>
           </article>
         </div>
@@ -71,17 +97,51 @@
 
     <section id="skills" class="section section-alt">
       <div class="container">
-        <h2 class="section-title reveal">Skills &amp; Toolkit</h2>
-        <div class="skills-grid reveal">
-          <div class="skills-category">
-            <h3>Frontend Development</h3>
-            <p>HTML5, CSS3, JavaScript (ES6+), Responsive Design, Semantic Layouts.</p>
+        <p class="section-eyebrow reveal">02 — TOOLKIT</p>
+        <h2 class="section-title reveal">Skills</h2>
+        
+        <div class="skills-container reveal">
+          <div class="skill-row">
+            <div class="skill-info">
+              <span class="skill-name">Figma &amp; UI Design</span>
+              <span class="skill-percentage">85%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill progress-blue" style="width: 85%;"></div>
+            </div>
           </div>
-          <div class="skills-category">
-            <h3>UI/UX Architecture</h3>
-            <p>Figma Design Systems, Visual Hierarchy, Prototyping, Component Frameworks.</p>
+
+          <div class="skill-row">
+            <div class="skill-info">
+              <span class="skill-name">HTML &amp; CSS</span>
+              <span class="skill-percentage">75%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill progress-green" style="width: 75%;"></div>
+            </div>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-info">
+              <span class="skill-name">JavaScript</span>
+              <span class="skill-percentage">55%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill progress-yellow" style="width: 55%;"></div>
+            </div>
+          </div>
+
+          <div class="skill-row">
+            <div class="skill-info">
+              <span class="skill-name">Python (learning)</span>
+              <span class="skill-percentage">35%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill progress-terracotta" style="width: 35%;"></div>
+            </div>
           </div>
         </div>
+
       </div>
     </section>
 
@@ -91,17 +151,17 @@
         <p class="contact-lead">Open to internships, freelance design, and good conversations. The fastest way to reach me is email.</p>
 
         <div class="contact-links">
-          <a href="mailto:hr.aabha@gmail.com" class="contact-link">
-            <span class="contact-link-label">Email</span>
-            <span class="contact-link-value">hr.aabha@gmail.com</span>
+          <a href="mailto:hr.aabha@gmail.com" class="contact-card reveal">
+            <span class="contact-label">Email</span>
+            <span class="contact-value">hr.aabha@gmail.com</span>
           </a>
-          <a href="https://github.com" target="_blank" rel="noopener" class="contact-link">
-            <span class="contact-link-label">GitHub</span>
-            <span class="contact-link-value">Nill&#8599;</span>
+          <a href="https://github.com" target="_blank" rel="noopener" class="contact-card reveal">
+            <span class="contact-label">GitHub</span>
+            <span class="contact-value">https://github.com/hraabha-ctrl &#8599;</span>
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact-link">
-            <span class="contact-link-label">LinkedIn</span>
-            <span class="contact-link-value">https://www.linkedin.com/in/aabha-hr-18182137b?utm_source=share_via&utm_content=profile&utm_medium=member_android &#8599;</span>
+          <a href="https://linkedin.com" target="_blank" rel="noopener" class="contact-card reveal">
+            <span class="contact-label">LinkedIn</span>
+            <span class="contact-value">https://www.linkedin.com/in/aabha-hr-18182137b?utm_source=share_via&utm_content=profile&utm_medium=member_android &#8599;</span>
           </a>
         </div>
       </div>
