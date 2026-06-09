@@ -1,7 +1,3 @@
-/* =========================================================
-   FOLIO CORE MODULES — script.js
-   ========================================================= */
-
 /* ---------- 1. THEME SWAP MODULE ---------- */
 const themeToggle = document.querySelector('#theme-toggle');
 
